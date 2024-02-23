@@ -2,3 +2,5 @@
 *.swp
 hdd.dsk
 os.elf
+Cargo.lock
+target/*
