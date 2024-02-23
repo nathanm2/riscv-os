@@ -4,7 +4,4 @@ version = "0.1.0"
 authors = ["Nathan Miller <nathanm2@gmail.com>"]
 edition = "2021"
 
-[lib]
-crate-type = ["staticlib"]
-
 [dependencies]
