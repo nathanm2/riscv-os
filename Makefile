@@ -31,7 +31,7 @@ $(RUST_LIB):
 $(OS_FILE): $(RUST_LIB) $(LD_SCRIPT)
 	$(LD) $(LD_FLAGS) -T $(LD_SCRIPT) -o $@ -L$(RUST_TARGET) -lros
 
-run: all
+run:
 	$(QEMU) -machine $(MACH) -cpu $(CPU) -smp $(CPUS) -m $(MEM)  -nographic -serial mon:stdio -bios none -kernel $(OS_FILE) -drive if=none,format=raw,file=$(DRIVE),id=foo -device virtio-blk-device,scsi=off,drive=foo
 
 

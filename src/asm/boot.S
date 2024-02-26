@@ -5,15 +5,20 @@
 # Largely copied from Stephen Marz's "Adventures in OS"
 # https://github.com/sgmarz/osblog
 
+.option push
+
 # Disable riscv instruction compression.
 .option norvc
-.section .data
+
+.pushsection .data
 .ascii "Hello World"
+.popsection
 
-.section .bss
+.pushsection .bss
 .zero 128
+.popsection
 
-.section .text.init
+.pushsection .text.init
 .global _start
 _start:
 	# Any hardware threads (hart) that are not bootstrapping
@@ -64,3 +69,6 @@ _start:
 3:
 	wfi
 	j	3b
+
+.popsection
+.option pop

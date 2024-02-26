@@ -30,13 +30,15 @@ SECTIONS
 
   .data : ALIGN(0x1000) {
     PROVIDE(_data_start = .);
-    *(.sdata .sdata.*) *(.data .data.*)
+    KEEP(*(.sdata .sdata.*))
+    KEEP(*(.data .data.*))
     PROVIDE(_data_end = .);
   } >ram AT>ram :data
 
   .bss :{
     PROVIDE(_bss_start = .);
-    *(.sbss .sbss.*) *(.bss .bss.*)
+    KEEP(*(.sbss .sbss.*))
+    KEEP(*(.bss .bss.*))
     PROVIDE(_bss_end = .);
   } >ram AT>ram :bss
 
