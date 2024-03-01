@@ -35,7 +35,7 @@ SECTIONS
     PROVIDE(_data_end = .);
   } >ram AT>ram :data
 
-  .bss :{
+  .bss : ALIGN(0x8) {
     PROVIDE(_bss_start = .);
     KEEP(*(.sbss .sbss.*))
     KEEP(*(.bss .bss.*))
